@@ -4,7 +4,7 @@
     margin: 0;
 }
 .container{
-    width: 90%;
+    width: 100%;
     padding: 2rem 2rem;
     display: flex;
     justify-content: left;
@@ -21,7 +21,7 @@ a{
     color: #FAA82B;
 }
 img{
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
 }
 li{
@@ -31,7 +31,18 @@ ul{
     display: flex;
     justify-content: space-between;
 }
-
+.box{
+    border: solid 1px white;
+    background-color: aliceblue;
+    width: 100%;
+    height: auto;
+}
+.content{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
   
 
 
