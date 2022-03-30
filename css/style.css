@@ -6,21 +6,13 @@
 .container{
     width: 90%;
     padding: 2rem 2rem;
-
-    
+    display: flex;
+    justify-content: left;
 }
 .nav-right{
-    font-size: 10 em;
-    float: right;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
-    /* justify-content: flex-end; */
+    justify-content: right;
+
+ 
 }
 a{
     text-decoration: none;
@@ -29,7 +21,7 @@ a{
     color: #FAA82B;
 }
 img{
-    max-width: 10%;
+    max-width: 100%;
     height: auto;
 }
 li{
