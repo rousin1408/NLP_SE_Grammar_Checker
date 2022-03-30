@@ -114,6 +114,15 @@ h2:after{
 	transition: .3s;
 	border-radius: 20px;
 }
+.fieldpassword{
+	width: 70%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	background-color: rgba(230, 230, 230, 0.6);
+	transition: .3s;
+	border-radius: 20px;
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+}
 
 .field:hover{
 	background-color: rgba(0, 0, 0, 0.1);
@@ -128,7 +137,7 @@ textarea{
 }
 
 .btn{
-	width: 70%;
+	width: 50%;
 	padding: 0.5rem 1rem;
 	background-color: #ffffff;
 	color: rgb(0, 0, 0);
