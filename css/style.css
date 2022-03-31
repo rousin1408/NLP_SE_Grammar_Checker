@@ -1,18 +1,26 @@
-*{
+/* *{
     background-color: #5C5B5B;
     padding: 0;
     margin: 0;
-}
-.container{
+} */
+
+/* .container{
     width: 100%;
     padding: 2rem 2rem;
     display: flex;
     justify-content: left;
+} */
+
+.main-content {
+    background-color: #5C5B5B;
 }
+
+.contact-us {
+    background-color: #5C5B5B;
+}
+
 .nav-right{
     justify-content: right;
-
- 
 }
 a{
     text-decoration: none;
