@@ -349,7 +349,7 @@ button:hover{
     display: inline-block;
 	width: 20%!important;
 	padding: 0.5rem 1rem;
-	background-color: #ffffff;
+	background-color: #faa82b;
 	color: rgb(0, 0, 0);
 	font-size: 1.1rem;
 	border: none;
@@ -357,10 +357,11 @@ button:hover{
 	cursor: pointer;
 	transition: .3s;
 	border-radius: 20px;
+    font-weight: 700;
 }
 
 .btn2:hover{
-    background-color: #faa82b;
+    background-color: #f0b154;
 }
 
 
