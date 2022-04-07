@@ -26,8 +26,8 @@ if(isset($_POST['submit'])){
       $response = json_decode( $result );
     //   echo $response->text;
    
-      // $hasil=$result;
-      $hasil=$response->text;
+      $hasil=$result;
+      // $hasil=$response->text;
 }
 
 ?>
