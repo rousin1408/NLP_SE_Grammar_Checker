@@ -2,9 +2,10 @@
 from flask import Flask, request, jsonify
 from spellchecker import SpellChecker
 
+
 app = Flask(__name__)
 
-@app.route('/spell', methods=['POST'])
+@app.route('/spelling', methods=['POST'])
 def spelling():
     if request.is_json:
         data = request.get_json()
@@ -24,7 +25,6 @@ def spelling():
             else :
                 text = text + " " + spell.correction(word)
         hasil = text
-
         for word in misspelled_word:
             arr.append({word: list(spell.candidates(word))})
         return { 'text': hasil, 'misspell': arr }
