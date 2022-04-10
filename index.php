@@ -74,8 +74,12 @@ if(isset($_POST['submit'])){
                         {         
                         ?>
                            <a href="#"><div class="btnnav" > <?=$_SESSION['Type_Account']?> </div></a>
+                           <div class="dropdown">
                            <a href="#"><div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;"> <?=$_SESSION['Name']?> </div></a>
-                           <a href="controller.php?aksi=logout"> <div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;">LOG OUT</div> </a>
+                           <div class="dropdown-content"><a href="controller.php?aksi=logout">LOG OUT</div> </a>
+                           </div>
+                          
+                           
                            
                          <?php  
                         }
