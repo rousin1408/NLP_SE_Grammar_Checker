@@ -27,19 +27,19 @@
             <div class="contact-box">
               <div class="right">
                 <h2>Login Your Account</h2>
-                <form method="post" action="email.php">
-                <input name="Email"type="email" class="field" placeholder="Email" required>
-                <input name="Password"type="password" class="field" placeholder="Password" required>
+                <form method="post" action="controller.php?aksi=login">
+                <input name="Email" type="Email" class="field" placeholder="Email" required>
+                <input name="Password" type="Password" class="field" placeholder="Password" required>
                 
                 <br>
                 <h6 style=" color:gray">
                   <input class="check" type="checkbox"> Keep me logged in
                 </h6>
                 
-                <a href="" name="submit"class="btn">Login</a>
+                <button type="submit" name="submit" class="btn">Login</button>
                 <br>
                 <br>
-                <a href="signup.html" style="text-decoration:none; color:gray">Don't have an Account ?</a>
+                <a href="signup.php" style="text-decoration:none; color:gray">Don't have an Account ?</a>
               </form>
               </div>
             </div>

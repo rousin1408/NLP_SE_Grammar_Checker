@@ -29,8 +29,8 @@
               <div class="contact-box">
                 <div class="right">
                   <h2>Sign Up</h2>
-                  <form method="post" action="email.php">
-                    <input name="Password"type="password" class="field" placeholder="Name" required>
+                  <form method="post" action="controller.php?aksi=signup">
+                    <input name="Name"type="Name" class="field" placeholder="Name" required>
                   <input name="Email"type="email" class="field" placeholder="Email" required>
                   <br>
                   <input name="Password"type="password" class="fieldpassword"  placeholder="Password" required>
@@ -38,7 +38,7 @@
                   <br>
                   <br>
                   <br>
-                  <a href="" name="submit"class="btn">Sign Up</a>
+                  <button value="submit"  name="submit"class="btn">Sign Up</button>
                   <br><br>
                   <a href="login.html" style="text-decoration:none; color:gray">Have an Account?</a>
                 </form>

@@ -1,7 +1,10 @@
 
-
-<!-- use LDAP\Result; -->
 <?php $hasil='';
+
+session_start();
+session_regenerate_id(true);
+
+
 $input=(array_key_exists('Sentence', $_POST)) ? $_POST['Sentence']: "";
 
 // if(isset($_POST['submit'])){
@@ -65,8 +68,25 @@ if(isset($_POST['submit'])){
                 <svg class="feather feather-phone-call" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 </svg>
               </a>
-            <a href="signup.html"> <div class="ms-4 text-light fw-bold">SIGN UP</div> </a>
-            <a href="login.html"> <div class="ms-4 text-light fw-bold">LOGIN</div> </a>
+              
+                    <?php 
+                        if (isset($_SESSION["id"])) 
+                        {         
+                        ?>
+                           <a href="#"><div class="btnnav" > <?=$_SESSION['Type_Account']?> </div></a>
+                           <a href="#"><div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;"> <?=$_SESSION['Name']?> </div></a>
+                           <a href="controller.php?aksi=logout"> <div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;">LOG OUT</div> </a>
+                           
+                         <?php  
+                        }
+                        
+                        else{
+                          echo'<a href="signup.php"> <div class="ms-4 text-light fw-bold">SIGN UP</div> </a>';
+                          echo'<a href="login.php"> <div class="ms-4 text-light fw-bold">LOGIN</div> </a>';
+                         
+                        }
+                      ?>    
+            
           </form>
         </div>
       </div>
@@ -109,7 +129,7 @@ if(isset($_POST['submit'])){
               <img src="img/Arrow.png"style="padding-top:25%;" alt="">
             </li>
             <li>
-                <span><div class="box"><?=$hasil?></div></span>
+                <span><textarea disabled class="textarea"   type="text"><?=$hasil?></textarea></span>
             </li>
           </ul>
 

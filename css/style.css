@@ -129,6 +129,22 @@ ul {
 .btn:hover{
     background-color: #f8b95a!important;
 }
+.btnnav{
+	padding: 0.5rem 0.5rem!important;
+	background-color: #faa82b!important;
+	color: rgb(0, 0, 0)!important;
+	font-size: 1rem!important;
+	font-weight: bold;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+	border-radius: 10px!important;
+}
+
+.btnnav:hover{
+    background-color: #f8b95a!important;
+}
 .contain{
 	position: relative;
 	width: 100%;
