@@ -55,6 +55,7 @@
                 header("location: signup.php.php?pesan0=gagal_register");
             }
         break;
+
     case 'logout':
         unset($_SESSION['status']);
         session_unset();
@@ -62,9 +63,7 @@
         // $_SESSION['status'] = "berhasil logout";
         header("location:login.php");
         break;
-   
-
-
+        
     default:
     echo 'Error';
 }

@@ -1,36 +1,25 @@
-
 <?php $hasil='';
 
 session_start();
 session_regenerate_id(true);
 
-
 $input=(array_key_exists('Sentence', $_POST)) ? $_POST['Sentence']: "";
 
-// if(isset($_POST['submit'])){
-//     $xml = file_get_contents("http://127.0.0.1:5000/spell?str=". $input);
-
-//     // exec('python apps.py', $output, $ret_code);
-//     echo $xml;
-// }
 if(isset($_POST['submit'])){
-    $data = array('sentence' => $input);
-    $url = "http://127.0.0.1:5000/spelling";
-    $options = array(
-        'http' => array(
-          'method'  => 'POST',
-          'content' => json_encode( $data ),
-          'header'=>  "Content-Type: application/json\r\n" .
-                      "Accept: application/json\r\n"
-          )
-      );
-      $context  = stream_context_create( $options );
-      $result = file_get_contents( $url, false, $context );
-      $response = json_decode( $result );
-    //   echo $response->text;
-   
-      $hasil=$result;
-      // $hasil=$response->text;
+  $data = array('sentence' => $input);
+  $url = "http://127.0.0.1:5000/spelling";
+  $options = array(
+    'http' => array(
+    'method'  => 'POST',
+    'content' => json_encode( $data ),
+    'header'=>  "Content-Type: application/json\r\n" .
+                "Accept: application/json\r\n"
+    )
+  );
+  $context  = stream_context_create( $options );
+  $result = file_get_contents( $url, false, $context );
+  $response = json_decode( $result );
+  $hasil = $result;
 }
 
 ?>
@@ -58,39 +47,46 @@ if(isset($_POST['submit'])){
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#header">HOME</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#content">GRAMMAR</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact-us">CONTACT US</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#">PLACEHOLDER</a></li>
+            <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#header">HOME</a></li>
+            <li class="nav-item px-2"><a class="nav-link fw-bold" href="#content">GRAMMAR</a></li>
+            <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact-us">CONTACT US</a></li>
           </ul>
           <form class="d-flex">
-              <a class="text-primary" href="#!">
-                <svg class="feather feather-phone-call" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </svg>
-              </a>
+            <a class="text-primary" href="#!">
+              <svg class="feather feather-phone-call" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              </svg>
+            </a>
               
-                    <?php 
-                        if (isset($_SESSION["id"])) 
-                        {         
-                        ?>
-                           <a href="#"><div class="btnnav" > <?=$_SESSION['Type_Account']?> </div></a>
-                           <div class="dropdown">
-                           <a href="#"><div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;"> <?=$_SESSION['Name']?> </div></a>
-                           <div class="dropdown-content"><a href="controller.php?aksi=logout">LOG OUT</div> </a>
-                           </div>
-                          
-                           
-                           
-                         <?php  
-                        }
-                        
-                        else{
-                          echo'<a href="signup.php"> <div class="ms-4 text-light fw-bold">SIGN UP</div> </a>';
-                          echo'<a href="login.php"> <div class="ms-4 text-light fw-bold">LOGIN</div> </a>';
-                         
-                        }
-                      ?>    
-            
+            <?php 
+              if (isset($_SESSION["id"])) 
+              {         
+            ?>
+
+            <a href="#">
+              <div class="btnnav" > 
+                <?=$_SESSION['Type_Account']?> 
+              </div>
+            </a>
+
+            <div class="dropdown">
+              <a href="#">
+                <div class="ms-6 text-light fw-bold" style="padding: 0.5rem 0.5rem!important;"> 
+                  <?=$_SESSION['Name']?> 
+                </div>
+              </a>
+            <div class="dropdown-content">
+              <a href="controller.php?aksi=logout">
+                LOG OUT
+              </a>
+            </div>                     
+                    
+            <?php  
+              }
+              else{
+                echo'<a href="signup.php"> <div class="ms-4 text-light fw-bold">SIGN UP</div> </a>';
+                echo'<a href="login.php"> <div class="ms-4 text-light fw-bold">LOGIN</div> </a>';
+              }
+            ?>    
           </form>
         </div>
       </div>
@@ -124,22 +120,21 @@ if(isset($_POST['submit'])){
 
       <center>
         <div class="wrapper">
-        <form method="POST">
-          <ul>
-            <li>
-                <span><textarea class="textarea"  id=""  name="Sentence" type="text"  placeholder="Enter your English text here...."></textarea></span>
-            </li>
-            <li>
-              <img src="img/Arrow.png"style="padding-top:25%;" alt="">
-            </li>
-            <li>
-                <span><textarea disabled class="textarea"   type="text"><?=$hasil?></textarea></span>
-            </li>
-          </ul>
-
-          <br>
-          <input type="submit" value="Check" name="submit" class="btn2">
-    </form>
+          <form method="POST">
+            <ul>
+              <li>
+                  <span><textarea class="textarea"  id=""  name="Sentence" type="text"  placeholder="Enter your English text here...."></textarea></span>
+              </li>
+              <li>
+                <img src="img/Arrow.png"style="padding-top:25%;" alt="">
+              </li>
+              <li>
+                  <span><textarea disabled class="textarea"   type="text"><?=$hasil?></textarea></span>
+              </li>
+            </ul>
+            <br>
+            <input type="submit" value="Check" name="submit" class="btn2">
+          </form>
         </div>
       </center>
     </section>
