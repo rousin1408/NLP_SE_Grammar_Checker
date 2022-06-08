@@ -14,5 +14,5 @@ def spelling():
         typo = data["sentence"]
         tool = language_tool_python.LanguageTool('en-US')
         final = tool.correct(typo)
-        return "Kata yang salah= "+ typo+"\n"+"kata yang benar= " + final
+        return final
     return {"error": "Request must be JSON"}, 415

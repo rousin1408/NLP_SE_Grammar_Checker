@@ -124,7 +124,9 @@ if(isset($_POST['submit'])){
             <ul>
               <li>
                 <div class="wrap">
-                <span><textarea class="textarea"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></textarea></span>
+                <span><textarea class="textarea"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here....">
+                
+                </textarea></span>
                 <div class="count">Word Count: <span id="counted">0</span>/500 </div> 
                 </div>
                 
@@ -145,7 +147,7 @@ if(isset($_POST['submit'])){
               
            
             <br>
-            <input type="submit" value="Check" onclick="validate()" name="submit" class="btn2">
+            <input type="submit" value="Check"  name="submit" class="btn2">
           </form>
         </div>
       </center>
