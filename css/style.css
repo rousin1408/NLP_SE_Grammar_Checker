@@ -89,6 +89,21 @@ ul{
     display:grid;
     grid-template-columns: 50% auto;
     padding: 4em 1em;
+	
+}
+.count{
+	background-color: rgb(255, 255, 255);
+	color: #000000;
+	text-align: right;
+	border-radius: 10px;
+	padding: 10px;
+}
+.count2{
+	padding: 25px;
+}
+.wrap{
+	background-color: white;
+	border-radius: 10px;
 }
 
 ul {

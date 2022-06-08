@@ -123,17 +123,29 @@ if(isset($_POST['submit'])){
           <form method="POST">
             <ul>
               <li>
-                  <span><textarea class="textarea"  id=""  name="Sentence" type="text"  placeholder="Enter your English text here...."></textarea></span>
+                <div class="wrap">
+                <span><textarea class="textarea"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></textarea></span>
+                <div class="count">Word Count: <span id="counted">0</span>/500 </div> 
+                </div>
+                
+                  
               </li>
               <li>
                 <img src="img/Arrow.png"style="padding-top:25%;" alt="">
               </li>
               <li>
-                  <span><textarea disabled class="textarea"   type="text"><?=$hasil?></textarea></span>
+                <div class="wrap">
+                <span><textarea disabled class="textarea"   type="text" ><?=$hasil?></textarea></span>
+                  <div class="count2"></div> 
+                </div>
+                  
               </li>
             </ul>
+
+              
+           
             <br>
-            <input type="submit" value="Check" name="submit" class="btn2">
+            <input type="submit" value="Check" onclick="validate()" name="submit" class="btn2">
           </form>
         </div>
       </center>
@@ -174,7 +186,7 @@ if(isset($_POST['submit'])){
     <!-- Copyright Footer End-->
 
 
-    <!-- Javascript and Font Setting Start-->
+    <script src="./js/main.js"></script>
 
     <script src="js/theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap" rel="stylesheet">
@@ -183,4 +195,3 @@ if(isset($_POST['submit'])){
     
   </body>
 </html>
-

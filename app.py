@@ -1,6 +1,7 @@
 # coba.py
 from flask import Flask, request, jsonify
 from spellchecker import SpellChecker
+import language_tool_python
 
 
 app = Flask(__name__)
@@ -11,21 +12,7 @@ def spelling():
         data = request.get_json()
         spell = SpellChecker()
         typo = data["sentence"]
-        typo1 = typo.split(" ")
-        misspelled_word = spell.unknown(typo1)
-        
-        text = ""
-        
-        hasil = ""
-        arr = []
-
-        for word in typo1:
-            if (len(text) == 0) :
-                text = text + spell.correction(word)
-            else :
-                text = text + " " + spell.correction(word)
-        hasil = text
-        for word in misspelled_word:
-            arr.append({word: list(spell.candidates(word))})
-        return { 'text': hasil, 'misspell': arr }
+        tool = language_tool_python.LanguageTool('en-US')
+        final = tool.correct(typo)
+        return "Kata yang salah= "+ typo+"\n"+"kata yang benar= " + final
     return {"error": "Request must be JSON"}, 415
