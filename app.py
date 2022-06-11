@@ -1,7 +1,7 @@
 # coba.py
 from flask import Flask, request, jsonify
 from gingerit.gingerit import GingerIt
-import language_tool_python
+# cloudscraper
 
 
 app = Flask(__name__)
