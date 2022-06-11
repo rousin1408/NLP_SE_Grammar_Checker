@@ -124,9 +124,7 @@ if(isset($_POST['submit'])){
             <ul>
               <li>
                 <div class="wrap">
-                <span><textarea class="textarea"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here....">
-                
-                </textarea></span>
+                <span><input class="textarea1" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
                 <div class="count">Word Count: <span id="counted">0</span>/500 </div> 
                 </div>
                 
