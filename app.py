@@ -1,6 +1,6 @@
 # coba.py
 from flask import Flask, request, jsonify
-from spellchecker import SpellChecker
+from gingerit.gingerit import GingerIt
 import language_tool_python
 
 
@@ -10,9 +10,8 @@ app = Flask(__name__)
 def spelling():
     if request.is_json:
         data = request.get_json()
-        spell = SpellChecker()
+        spell = GingerIt()
         typo = data["sentence"]
-        tool = language_tool_python.LanguageTool('en-US')
-        final = tool.correct(typo)
-        return final
+        final = spell.parse(typo)
+        return final['result']
     return {"error": "Request must be JSON"}, 415
