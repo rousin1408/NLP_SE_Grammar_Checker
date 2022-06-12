@@ -60,13 +60,44 @@ if(isset($_POST['submit'])){
             <?php 
               if (isset($_SESSION["id"])) 
               {         
+                if($_SESSION['Type_Account']=="GET TO PREMIUM"){
+                
             ?>
-
-            <a href="#">
+            <a class="trigger">
               <div class="btnnav" > 
-                <?=$_SESSION['Type_Account']?> 
+                <?=$_SESSION['Type_Account'] ?> 
+              
               </div>
             </a>
+            <?php }
+
+            else if($_SESSION['Type_Account']=="PREMIUM"){
+              echo'<div class="ms-6 text-light fw-bold" style="color:#FAA82B!important; padding: 0.5rem 0.5rem!important;">PREMIUM</div>';
+            }?>
+            <!-- pop up -->
+            <div class="modal">
+              <div class="modal-content">
+                  <span class="close-button">&times;</span>
+                  <ul>
+                    <li><h1>Payment</h1></li>
+                  </ul>
+                      <ul>
+                          <li>Name: <?=$_SESSION['Name']?> </li>
+                          </ul>
+                          <ul>
+                            <li>Email: <?=$_SESSION['Email']?> </li>
+                          </ul>
+                          <ul>
+                          <li>Bill: Rp. 20.000</li>
+                          </ul>
+                          <br>
+                          <ul>
+                          <li><a href="controller.php?aksi=Update&id=<?=$_SESSION["id"]?>"class="btn" id="bt">Submit</a></li>  
+                          </ul>
+              </div>
+           
+
+          </div>
 
             <div class="dropdown">
               <a href="#">
@@ -81,7 +112,10 @@ if(isset($_POST['submit'])){
             </div>                     
                     
             <?php  
+              
+              
               }
+              
               else{
                 echo'<a href="signup.php"> <div class="ms-4 text-light fw-bold">SIGN UP</div> </a>';
                 echo'<a href="login.php"> <div class="ms-4 text-light fw-bold">LOGIN</div> </a>';
@@ -123,11 +157,39 @@ if(isset($_POST['submit'])){
           <form method="POST">
             <ul>
               <li>
+             
                 <div class="wrap">
                 <span><input class="textarea1" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
-                <div class="count">Word Count: <span id="counted">0</span>/500 </div> 
-                </div>
+                <div class="count">Word Count: <?php 
+              if (isset($_SESSION["id"])) 
+              { 
+                if($_SESSION['Type_Account']=="GET TO PREMIUM"){
+                  ?>
+                   <span id="counted">0</span>/500 </div> 
+                  <?php
+                }
+                else if($_SESSION['Type_Account']=="PREMIUM"){   
+              ?>
+              <span id="counted">0</span>/Unlimited </div> 
+              <?php
+              } 
+              
+             
+                ?>
                 
+              <?php
+              }
+              else{
+               
+              
+              ?>
+               <span id="counted">0</span>/200 </div> 
+              <?php 
+
+            
+              } ?>
+                </div>
+
                   
               </li>
               <li>
@@ -167,7 +229,7 @@ if(isset($_POST['submit'])){
               <input name="Email"type="Email" class="field" placeholder="Your Email" required>
               <input name="Nomor_Telepon"type="Nomor_Telepon" class="field" placeholder="Phone" required>
               <textarea name="Pesan"placeholder="Message" class="field"></textarea>
-              <a href="" name="submit"class="btn">Send</a>
+              <a href="" name="submit" class="btn">Send</a>
             </form>
             </div>
           </div>
@@ -184,10 +246,27 @@ if(isset($_POST['submit'])){
     </div>
 
     <!-- Copyright Footer End-->
-
+    <script>
+      Swal.fire(
+      'Congratulation',
+      'You Become Premium Now',
+      'success'
+      )
+    </script>
 
     <script src="./js/main.js"></script>
+        <script src="dist/sweetalert2.all.min.js"> </script>
+        <script>
+          const bt = document.getElementsById('bt');
+          bt.addEventListener('click',function(){
+            Swal.fire('any foll can use the computer')
+          });
 
+
+
+
+
+        </script>
     <script src="js/theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap" rel="stylesheet">
     

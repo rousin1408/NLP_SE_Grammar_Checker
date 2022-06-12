@@ -63,7 +63,34 @@
         // $_SESSION['status'] = "berhasil logout";
         header("location:login.php");
         break;
+    case 'Update':
+        session_start();
+        $id = $_GET['id'];
+        // $Name = $_POST['Name'];
+        // $Email = $_POST['Email'];
+        // $Password = $_POST['Password'];
+        $Type_Account="PREMIUM";
         
+        // Escape
+        $esc_id = mysqli_real_escape_string($koneksi, $id);
+        // $esc_nama = mysqli_real_escape_string($koneksi, $Name);
+        // $esc_email = mysqli_real_escape_string($koneksi, $Email);
+        $esc_type_account = mysqli_real_escape_string($koneksi,  $Type_Account);
+        // Hash PW
+        // $hash_pw = password_hash($esc_password, PASSWORD_DEFAULT);
+        
+        $query = "UPDATE member SET Type_Account = '$esc_type_account' WHERE id = '$esc_id'";
+        // echo "$esc_type_account";
+
+        $exec = mysqli_query($koneksi, $query);
+
+        if($exec){
+            $_SESSION['Type_Account']=$esc_type_account;
+            header("location: index.php?pesan=sukses_bayar");
+        }else{
+            header("location: index.php?pesan=gagal_bayar");
+        }
+        break;   
     default:
     echo 'Error';
 }
