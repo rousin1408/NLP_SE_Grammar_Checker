@@ -158,19 +158,23 @@ if(isset($_POST['submit'])){
             <ul>
               <li>
              
-                <div class="wrap">
-                <span><input class="textarea1" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
-                <div class="count">Word Count: <?php 
+         <?php 
               if (isset($_SESSION["id"])) 
               { 
                 if($_SESSION['Type_Account']=="GET TO PREMIUM"){
                   ?>
-                   <span id="counted">0</span>/500 </div> 
+                <div class="wrap">
+                <span><input id="word1" class="textarea1" oninput="countword1()" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  onkeyup="wordLimit1(this, 500)"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
+                <div class="count">Word Count:
+                   <span id="show1">0</span>/500 </div> 
                   <?php
                 }
                 else if($_SESSION['Type_Account']=="PREMIUM"){   
               ?>
-              <span id="counted">0</span>/Unlimited </div> 
+                <div class="wrap">
+                <span><input id="word" class="textarea1" oninput="countword()" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  id="input"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
+                <div class="count">Word Count:
+              <span id="show">0</span>/Unlimited </div> 
               <?php
               } 
               
@@ -183,7 +187,10 @@ if(isset($_POST['submit'])){
                
               
               ?>
-               <span id="counted">0</span>/200 </div> 
+              <div class="wrap">
+                <span><input id="word" class="textarea1" oninput="countword()" value="<?php if(isset($_POST['Sentence'])) {echo $_POST['Sentence'];}?>"  onkeyup="wordLimit(this)"  name="Sentence" type="text"  placeholder="Enter your English text here...."></input></span>
+                <div class="count">Word Count:
+               <span id="show">0</span>/200 </div> 
               <?php 
 
             
@@ -197,7 +204,7 @@ if(isset($_POST['submit'])){
               </li>
               <li>
                 <div class="wrap">
-                <span><textarea disabled class="textarea"   type="text" ><?=$hasil?></textarea></span>
+                <span><textarea disabled class="textarea"type="text" ><?=$hasil?></textarea></span>
                   <div class="count2"></div> 
                 </div>
                   
@@ -256,17 +263,7 @@ if(isset($_POST['submit'])){
 
     <script src="./js/main.js"></script>
         <script src="dist/sweetalert2.all.min.js"> </script>
-        <script>
-          const bt = document.getElementsById('bt');
-          bt.addEventListener('click',function(){
-            Swal.fire('any foll can use the computer')
-          });
-
-
-
-
-
-        </script>
+       
     <script src="js/theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap" rel="stylesheet">
     
@@ -274,3 +271,7 @@ if(isset($_POST['submit'])){
     
   </body>
 </html>
+
+
+
+
