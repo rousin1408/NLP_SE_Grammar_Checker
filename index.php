@@ -7,7 +7,7 @@ $input=(array_key_exists('Sentence', $_POST)) ? $_POST['Sentence']: "";
 
 if(isset($_POST['submit'])){
   $data = array('sentence' => $input);
-  $url = "http://127.0.0.1:5000/spelling";
+  $url = "http://rousin2002.pythonanywhere.com";
   $options = array(
     'http' => array(
     'method'  => 'POST',
