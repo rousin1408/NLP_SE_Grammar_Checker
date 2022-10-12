@@ -40,7 +40,7 @@
                   <br>
                   <button value="submit"  name="submit"class="btn">Sign Up</button>
                   <br><br>
-                  <a href="login.html" style="text-decoration:none; color:gray">Have an Account?</a>
+                  <a href="login.php" style="text-decoration:none; color:gray">Have an Account?</a>
                 </form>
                </div>
               </div>

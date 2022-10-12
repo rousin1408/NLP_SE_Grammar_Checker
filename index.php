@@ -231,12 +231,12 @@ if(isset($_POST['submit'])){
           <div class="contact-box">
             <div class="right">
               <h2 style="color: white;">Contact Us</h2>
-              <form method="post" action="email.php">
+              <form method="post" action="controller.php?aksi=contact">
               <input name="Nama"type="Nama" class="field" placeholder="Your Name" required>
               <input name="Email"type="Email" class="field" placeholder="Your Email" required>
-              <input name="Nomor_Telepon"type="Nomor_Telepon" class="field" placeholder="Phone" required>
+              <input name="Nomor_Telepon" type="Nomor_Telepon" class="field" placeholder="Phone" required>
               <textarea name="Pesan"placeholder="Message" class="field"></textarea>
-              <a href="" name="submit" class="btn">Send</a>
+              <button class="btn" value="submit"  name="submit" onclick="submitForm()" >Send</button>
             </form>
             </div>
           </div>
@@ -254,11 +254,9 @@ if(isset($_POST['submit'])){
 
     <!-- Copyright Footer End-->
     <script>
-      Swal.fire(
-      'Congratulation',
-      'You Become Premium Now',
-      'success'
-      )
+      function submitForm() {
+        alert("Pesan Sukses Terkirim");
+      }
     </script>
 
     <script src="./js/main.js"></script>
@@ -266,6 +264,8 @@ if(isset($_POST['submit'])){
        
     <script src="js/theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     
     <!-- Javascript and Font Setting End -->
     

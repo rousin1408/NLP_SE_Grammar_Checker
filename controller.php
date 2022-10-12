@@ -2,7 +2,6 @@
  session_start();
  session_regenerate_id(true);
  include 'koneksi.php';
-
  $data = $_REQUEST;
  switch($data['aksi']){
     case 'login':
@@ -31,7 +30,7 @@
             }
             else{
             header("location:login.php?pesan=gagal");
-            //  alert("Gagal simpan Data");
+            echo "<script>alert('Pesan Sukses Terkirim');</script>"; 
             }
         }   
         break;
@@ -52,10 +51,28 @@
             if($hasil){
                 header("location: login.php?pesan1=sukses_register");
             }else{
-                header("location: signup.php.php?pesan0=gagal_register");
+                header("location: signup.php?pesan0=gagal_register");
             }
         break;
-
+        case 'contact':
+            $Nama=$_POST['Nama'];
+            $esc_nama = mysqli_real_escape_string($koneksi, $Nama);
+            $Email=$_POST['Email'];
+            $esc_email = mysqli_real_escape_string($koneksi, $Email);
+            $Nomor_Telepon = $_POST['Nomor_Telepon'];
+            $esc_Nomor_Telepon = mysqli_real_escape_string($koneksi, $Nomor_Telepon);
+            $Pesan=$_POST['Pesan'];
+            $esc_Pesan = mysqli_real_escape_string($koneksi, $Pesan);
+            $sql= "INSERT INTO `contact`(`Nama`, `Email`, `Nomor_Telepon`,`Pesan`) VALUES ('$esc_nama','$esc_email','$esc_Nomor_Telepon','$esc_Pesan')";
+            $hasil=mysqli_query($koneksi,$sql);
+            if($hasil){
+                header("location: index.php?pesan1=sukses_terkirim");
+                // alert("Pesan sukses terkirim");
+                
+            }else{
+                header("location: index.php?pesan0=gagal_terkirim");
+            }
+        break;
     case 'logout':
         unset($_SESSION['status']);
         session_unset();

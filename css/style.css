@@ -529,6 +529,22 @@ button:hover{
 .btn3:hover{
     background-color: #f8b95a!important;
 }
+.btn4{
+	width: 20%;
+	padding: 0.5rem 1rem!important;
+	background-color: #faa82b!important;
+	color: rgb(0, 0, 0)!important;
+	font-size: 1.1rem!important;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+	border-radius: 20px!important;
+}
+
+.btn4:hover{
+    background-color: #f8b95a!important;
+}
 
 
 
